@@ -33,9 +33,14 @@
 
 
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
     <script src="app.js"></script>
 </head>
 <body class="container-fluid" ng-controller="MainCtrl">
+
+<ui-view></ui-view>
+
+<script type="text/ng-template" id="/home.html">
     <h1 class="page-header">Flapper News</h1>
 
     <div class="row">
@@ -64,5 +69,6 @@
             </form>
         </div>
     </div>
+</script>
 </body>
 </html>
