@@ -28,6 +28,11 @@
         .post-form {
             margin-top: 30px;
         }
+
+        .comment-body {
+            font-size: 21px;
+            margin-left: 1em;
+        }
     </style>
 
 
@@ -76,36 +81,37 @@
 </script>
 
 <script type="text/ng-template" id="/posts.html">
-    <div class="page-header">
-        <h3>
-            <a ng-show="post.link" href="{{post.link}}">
-                {{post.title}}
-            </a>
-            <span ng-hide="post.link">
-                {{post.title}}
-            </span>
-        </h3>
-    </div>
-
-    <div ng-repeat="comment in post.comments | orderBy:'-upvotes'">
-        <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(comment)"></span>
-
-        {{comment.upvotes}} - by {{comment.author}}
-
-        <span>
-            {{comment.body}}
+    <h3 class="page-header">
+        <a ng-show="post.link" href="{{post.link}}">
+            {{post.title}}
+        </a>
+        <span ng-hide="post.link">
+            {{post.title}}
         </span>
-    </div>
+    </h3>
 
-    <form ng-submit="addComment()">
-        <h3>Add a new comment</h3>
+    <div class="col-md-8">
+        <div ng-repeat="comment in post.comments | orderBy:'-upvotes'">
+            <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(comment)"></span>
 
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="Comment" ng-model="body" />
+            {{comment.upvotes}} - by {{comment.author}}
+
+            <span class="comment-body">
+                {{comment.body}}
+            </span>
         </div>
+    </div>
+    <div class="col-md-4">
+        <form ng-submit="addComment()">
+            <h3>Add a new comment</h3>
 
-        <button type="submit" class="btn btn-primary">Post</button>
-    </form>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Comment" ng-model="body" />
+            </div>
+
+            <button type="submit" class="btn btn-primary">Post</button>
+        </form>
+    </div>
 </script>
 </body>
 </html>
