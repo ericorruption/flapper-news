@@ -30,5 +30,21 @@ angular.module('flapperNews').factory('auth', ['$http', '$window', function($htt
         }
     }
 
+    auth.register = function(user) {
+        return $http.post('/register', user).success(function(data) {
+            auth.saveToken(data.token);
+        });
+    }
+
+    auth.login = function(user) {
+        return $http.post('/login', user).success(function(data) {
+            auth.saveToken(data.token);
+        });
+    }
+
+    auth.logOut = function() {
+        $window.localStorage.removeItem('flapper-news-token');
+    };
+
     return auth;
 }]);
