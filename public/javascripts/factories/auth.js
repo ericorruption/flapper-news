@@ -42,7 +42,7 @@ angular.module('flapperNews').factory('auth', ['$http', '$window', function($htt
         });
     }
 
-    auth.logOut = function() {
+    auth.logout = function() {
         $window.localStorage.removeItem('flapper-news-token');
     };
 
