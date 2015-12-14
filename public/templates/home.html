@@ -11,13 +11,18 @@
 
             - upvotes: {{ post.upvotes }}
 
+
+            <span ng-show="post.author">
+                posted by <strong>{{ post.author }}</strong> |
+            </span>
+
             <span>
                 <a href="#/posts/{{ post._id }}">Comments</a>
             </span>
         </div>
     </div>
     <div class="col-md-4">
-        <form class="post-form" ng-submit="addPost()">
+        <form class="post-form" ng-submit="addPost()" ng-show="isLoggedIn()">
             <legend class="h3">Add a new post</legend>
             <div class="form-group">
                 <input type="text" class="form-control" ng-model="title" placeholder="Title">
@@ -28,5 +33,9 @@
             </div>
             <button type="submit" class="btn btn-primary">Post</button>
         </form>
+
+        <div ng-hide="isLoggedIn()">
+            <h3>You need to <a href="/#/login">Log In</a> or <a href="/#/register">Register</a> before you can add a post.</h3>
+        </div>
     </div>
 </div>
