@@ -1,0 +1,19 @@
+<h1 class="page-header">Flapper news</h1>
+
+<div ng-show="error" class="alert alert-danger row">
+    {{ error.message }}
+</div>
+
+<form ng-submit="login()">
+    <h3>Log in</h3>
+
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Username" ng-model="user.username" />
+    </div>
+
+    <div class="form-group">
+        <input type="password" class="form-control" placeholder="Password" ng-model="user.password" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Log in</button>
+</form>
