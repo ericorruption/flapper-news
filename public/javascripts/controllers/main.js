@@ -1,5 +1,10 @@
-angular.module('flapperNews').controller('MainCtrl', ['$scope', 'posts', function($scope, posts) {
+angular.module('flapperNews').controller('MainCtrl', [
+    '$scope',
+    'posts',
+    'auth',
+function($scope, posts, auth) {
     $scope.test = 'Hello world!';
+    $scope.isLoggedIn = auth.isLoggedIn;
 
     $scope.posts = posts.posts;
 

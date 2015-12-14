@@ -2,8 +2,9 @@ angular.module('flapperNews').controller('PostsCtrl', [
     '$scope',
     'posts',
     'post',
-function($scope, posts, post) {
-
+    'auth',
+function($scope, posts, post, auth) {
+    $scope.isLoggedIn = auth.isLoggedIn;
     $scope.post = post;
 
     $scope.addComment = function() {
